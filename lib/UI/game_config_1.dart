@@ -18,6 +18,8 @@ class GameConfig1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+            automaticallyImplyLeading: true, backgroundColor: Colors.black),
         backgroundColor: Colors.black,
         body: Center(
             child: Container(
@@ -28,7 +30,7 @@ class GameConfig1 extends StatelessWidget {
                     //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Spacer(
-                        flex: 2,
+                        flex: 1,
                       ),
                       Text(
                         "Nova\nPartida",
