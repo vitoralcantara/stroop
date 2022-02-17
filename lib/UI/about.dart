@@ -1,38 +1,93 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:stroop/UI/statistics.dart';
+
+import 'game_config_1.dart';
 
 class About extends StatefulWidget {
   @override
   _AboutState createState() => _AboutState();
 }
 
+final redButtonStyle = ElevatedButton.styleFrom(
+    fixedSize: const Size(160, 60), primary: Colors.red);
+
+final blueButtonStyle = ElevatedButton.styleFrom(
+    fixedSize: const Size(160, 60), primary: Colors.blue);
+
+final greenButtonStyle = ElevatedButton.styleFrom(
+    fixedSize: const Size(160, 60), primary: Colors.green);
+
+final buttonTextStyle = GoogleFonts.nunito(fontSize: 25.0);
+
 class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(backgroundColor: blueColor, elevation: 0),
-        body: Container(
-      decoration: BoxDecoration(
-          gradient: RadialGradient(
-        center: const Alignment(1.5, -0.9), // near the top right
-        radius: 1.3,
-        colors: [
-          const Color(0xFFFFFFFF), // yellow sun// blue sky
-        ],
-        stops: [0.1, 1.0],
-      )),
-      child: Center(
-          child: Container(
-              child: Column(children: <Widget>[
-        Container(
-            constraints: BoxConstraints.expand(height: 120),
-            child: Row(children: <Widget>[
-              TextButton(
-                  child: Icon(Icons.arrow_back_ios, color: Colors.white),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  })
-            ])),
-      ]))),
-    ));
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+            automaticallyImplyLeading: true, backgroundColor: Colors.black),
+        body: Center(
+            child: Container(
+                alignment: FractionalOffset.center,
+                margin: EdgeInsets.only(top: 40),
+                //constraints: BoxConstraints.expand(width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height),
+                child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Spacer(
+                        flex: 2,
+                      ),
+                      Text(
+                        "Efeito\nStroop",
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.nunito(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 56.0,
+                            color: Colors.white),
+                        maxLines: 2,
+                      ),
+                      Spacer(flex: 2),
+                      ElevatedButton(
+                        style: redButtonStyle,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => GameConfig1(),
+                              ));
+                        },
+                        child: Text(
+                          'Jogar',
+                          style: buttonTextStyle,
+                        ),
+                      ),
+                      Spacer(),
+                      ElevatedButton(
+                        style: blueButtonStyle,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Statistics(),
+                              ));
+                        },
+                        child: Text('Estatísticas', style: buttonTextStyle),
+                      ),
+                      Spacer(),
+                      ElevatedButton(
+                        style: greenButtonStyle,
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => About(),
+                              ));
+                        },
+                        child: Text('Sobre', style: buttonTextStyle),
+                      ),
+                      Spacer(flex: 4),
+                    ]))));
   }
 }

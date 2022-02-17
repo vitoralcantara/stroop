@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stroop/UI/results.dart';
 
 class Game extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final redButtonStyle = ElevatedButton.styleFrom(
-        fixedSize: Size(MediaQuery
-            .of(context)
-            .size
-            .width / 3,
-            MediaQuery
-                .of(context)
-                .size
-                .width / 3));
+        fixedSize: Size(MediaQuery.of(context).size.width / 3,
+            MediaQuery.of(context).size.width / 3));
     return Scaffold(
         appBar: AppBar(
             automaticallyImplyLeading: true, backgroundColor: Colors.black),
@@ -23,7 +18,7 @@ class Game extends StatelessWidget {
                 margin: EdgeInsets.only(top: 40),
                 //constraints: BoxConstraints.expand(width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height),
                 child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Spacer(
                         flex: 1,
@@ -48,7 +43,7 @@ class Game extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Game(),
+                                    builder: (context) => Results(),
                                   ));
                             },
                             child: Text(''),
@@ -60,7 +55,7 @@ class Game extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Game(),
+                                    builder: (context) => Results(),
                                   ));
                             },
                             child: Text(''),
@@ -78,7 +73,7 @@ class Game extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => (Game()),
+                                      builder: (context) => (Results()),
                                     ));
                               },
                               child: Text('')),
