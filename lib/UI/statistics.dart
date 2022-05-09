@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../main.dart';
-
 class Statistics extends StatelessWidget {
   final redButtonStyle = ElevatedButton.styleFrom(
       fixedSize: const Size(160, 60), primary: Colors.red);
@@ -19,61 +17,71 @@ class Statistics extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            automaticallyImplyLeading: true, backgroundColor: Colors.black),
+            centerTitle: true,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  "Estatísticas",
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.nunito(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 30.0,
+                      color: Colors.white),
+                  maxLines: 2,
+                ),
+              ],
+            ),
+            automaticallyImplyLeading: true,
+            backgroundColor: Colors.black),
         backgroundColor: Colors.black,
         body: Center(
             child: Container(
-                alignment: FractionalOffset.center,
+                //alignment: FractionalOffset.center,
                 margin: EdgeInsets.only(top: 0),
                 child: Column(children: <Widget>[
-                  Text(
-                    "Estatísticas",
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.nunito(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 30.0,
-                        color: Colors.white),
-                    maxLines: 2,
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Colors.blue),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => this,
-                          ));
-                    },
-                    child: Text(
-                      'Totais',
-                      style: buttonTextStyle,
-                    ),
-                  ),
-                  Spacer(),
-                  ElevatedButton(
-                    style: blueButtonStyle,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => (this),
-                          ));
-                    },
-                    child: Text('30 segundos', style: buttonTextStyle),
-                  ),
-                  Spacer(),
-                  ElevatedButton(
-                    style: greenButtonStyle,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => (Main()),
-                          ));
-                    },
-                    child: Text('1 minuto', style: buttonTextStyle),
-                  ),
+                  Container(
+                      alignment: Alignment.center,
+                      height: 50,
+                      margin: EdgeInsets.only(bottom: 10, top: 5),
+                      width: MediaQuery.of(context).size.width / 1.05,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10.0),
+                              bottomRight: Radius.circular(10.0),
+                              topLeft: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0)),
+                          color: Color(0xff4886e8)),
+                      child: Text('30 segundos',
+                          style: GoogleFonts.nunito(
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                              fontSize: 20.0))),
+                  Container(
+                      width: MediaQuery.of(context).size.width / 1.05,
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.only(
+                          left: 10, top: 5, bottom: 5, right: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10.0),
+                              bottomRight: Radius.circular(10.0),
+                              topLeft: Radius.circular(10.0),
+                              bottomLeft: Radius.circular(10.0)),
+                          color: Color(0xff9fc5e8)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Número de acertos: 125',
+                              style: GoogleFonts.nunito(fontSize: 20.0)),
+                          Text('Número de erros: 24',
+                              style: GoogleFonts.nunito(fontSize: 20.0)),
+                          Text('Tempo médio de reação: 12s',
+                              style: GoogleFonts.nunito(fontSize: 20.0)),
+                        ],
+                      )),
                   Spacer(flex: 4),
                 ]))));
   }

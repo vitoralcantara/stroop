@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'UI/about.dart';
 import 'UI/game_config_1.dart';
 import 'UI/statistics.dart';
 
@@ -89,18 +88,6 @@ class _MainState extends State<Main> {
                               ));
                         },
                         child: Text('Estatísticas', style: buttonTextStyle),
-                      ),
-                      Spacer(),
-                      ElevatedButton(
-                        style: greenButtonStyle,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => About(),
-                              ));
-                        },
-                        child: Text('Sobre', style: buttonTextStyle),
                       ),
                       Spacer(flex: 4),
                     ]))));
